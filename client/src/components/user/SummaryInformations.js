@@ -31,7 +31,7 @@ class SummaryInformations extends React.Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Summary Informations"></AppBar>
+          <AppBar title="Summary Informations" style={styles.barColor}></AppBar>
           <List>
             <ListItem primaryText="First Name" secondaryText={firstName} />
             <ListItem primaryText="Last Name" secondaryText={lastName} />
@@ -43,16 +43,16 @@ class SummaryInformations extends React.Component {
           </List>
           <br />
           <RaisedButton
-            label="Confirm & Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
-          <RaisedButton
             label="Back"
             primary={false}
             style={styles.button}
             onClick={this.back}
+          />
+          <RaisedButton
+            label="Confirm & Continue"
+            primary={true}
+            style={styles.button}
+            onClick={this.continue}
           />
         </React.Fragment>
       </MuiThemeProvider>
@@ -63,5 +63,6 @@ const styles = {
   button: {
     margin: 15,
   },
+  barColor: { background: '#2E3B55' },
 };
 export default SummaryInformations;

@@ -15,7 +15,7 @@ class FormUserDetails extends React.Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter Your Details"></AppBar>
+          <AppBar title="Enter Your Details" style={styles.barColor}></AppBar>
           <TextField
             hintText="Enter Your First Name"
             floatingLabelText="First Name"
@@ -52,5 +52,6 @@ const styles = {
   button: {
     margin: 15,
   },
+  barColor: { background: '#2E3B55' },
 };
 export default FormUserDetails;

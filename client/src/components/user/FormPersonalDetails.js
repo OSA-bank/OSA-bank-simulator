@@ -20,7 +20,7 @@ class FormPersonalDetails extends React.Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter Your Details"></AppBar>
+          <AppBar title="Enter Your Details" style={styles.barColor}></AppBar>
           <TextField
             hintText="Enter Your Occupation"
             floatingLabelText="Occupation"
@@ -50,16 +50,16 @@ class FormPersonalDetails extends React.Component {
           />
           <br />
           <RaisedButton
-            label="Next"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
-          <RaisedButton
             label="Back"
             primary={false}
             style={styles.button}
             onClick={this.back}
+          />
+          <RaisedButton
+            label="Next"
+            primary={true}
+            style={styles.button}
+            onClick={this.continue}
           />
         </React.Fragment>
       </MuiThemeProvider>
@@ -70,5 +70,6 @@ const styles = {
   button: {
     margin: 15,
   },
+  barColor: { background: '#2E3B55' },
 };
 export default FormPersonalDetails;
