@@ -1,21 +1,25 @@
 import React from 'react';
 import FormUserDetails from './FormUserDetails';
+import FormPersonalDetails from './FormPersonalDetails';
+import SummaryInformations from './SummaryInformations';
+import Success from './Success';
 
 class UserForm extends React.Component {
   state = {
     step: 1,
     firstName: '',
     lastName: '',
-    email: '',
+    username: '',
     occupation: '',
+    state: '',
     city: '',
-    bio: '',
+    zipCode: '',
   };
 
   // Proceed to next step
   nextStep = () => {
     const { step } = this.state;
-    this.state({
+    this.setState({
       step: step + 1,
     });
   };
@@ -23,7 +27,7 @@ class UserForm extends React.Component {
   // Proceed to next step
   prevStep = () => {
     const { step } = this.state;
-    this.state({
+    this.setState({
       step: step - 1,
     });
   };
@@ -33,8 +37,8 @@ class UserForm extends React.Component {
   };
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, occupation, city, bio } = this.state;
-    const values = { firstName, lastName, email, occupation, city, bio };
+    const { firstName, lastName, username, occupation, city, bio } = this.state;
+    const values = { firstName, lastName, username, occupation, city, bio };
     switch (step) {
       case 1:
         return (
@@ -45,11 +49,24 @@ class UserForm extends React.Component {
           />
         );
       case 2:
-        return <h1>FormPersonalDetails</h1>;
+        return (
+          <FormPersonalDetails
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
       case 3:
-        return <h1>Confirm</h1>;
+        return (
+          <SummaryInformations
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+          />
+        );
       case 4:
-        return <h1>Success</h1>;
+        return <Success />;
     }
   }
 }
