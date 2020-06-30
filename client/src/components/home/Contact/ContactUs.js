@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import girl from './girl.png';
 import './contact.css';
 
 function Contact () {
