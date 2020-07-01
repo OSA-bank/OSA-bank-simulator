@@ -13,7 +13,7 @@ class UserForm extends React.Component {
     occupation: '',
     state: '',
     city: '',
-    zipCode: '',
+    zipcode: '',
   };
 
   // Proceed to next step
@@ -37,8 +37,24 @@ class UserForm extends React.Component {
   };
   render() {
     const { step } = this.state;
-    const { firstName, lastName, username, occupation, city, bio } = this.state;
-    const values = { firstName, lastName, username, occupation, city, bio };
+    const {
+      firstName,
+      lastName,
+      username,
+      occupation,
+      state,
+      city,
+      zipcode,
+    } = this.state;
+    const values = {
+      firstName,
+      lastName,
+      username,
+      occupation,
+      state,
+      city,
+      zipcode,
+    };
     switch (step) {
       case 1:
         return (

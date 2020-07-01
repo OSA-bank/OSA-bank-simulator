@@ -45,8 +45,8 @@ class FormPersonalDetails extends React.Component {
           <TextField
             hintText="Enter Your Zip Code"
             floatingLabelText="Zip Code"
-            onChange={handleChange('zipCode')}
-            defaultValue={values.zipCode}
+            onChange={handleChange('zipcode')}
+            defaultValue={values.zipcode}
           />
           <br />
           <RaisedButton

@@ -4,6 +4,8 @@ import Nav from '../nav/Nav';
 import About from '../about/About';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserForm from '../user/UserForm';
+import UserDashboard from '../user/userDashboard';
+import DashboardProfileInformations from '../user/dahsboardProfileInformations';
 
 function App() {
   return (
@@ -14,6 +16,11 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/userForm" component={UserForm} />
+          <Route path="/userDashboard" component={UserDashboard} />
+          <Route
+            path="/dashboarprofileinformations"
+            component={DashboardProfileInformations}
+          />
         </Switch>
       </div>
     </Router>

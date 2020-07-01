@@ -4,8 +4,9 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { List, ListItem } from 'material-ui';
+import UserDashboard from './userDashboard';
 
-class SummaryInformations extends React.Component {
+class DashboardProfileInformations extends React.Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -17,39 +18,27 @@ class SummaryInformations extends React.Component {
   };
 
   render() {
-    const {
-      values: {
-        firstName,
-        lastName,
-        username,
-        occupation,
-        state,
-        city,
-        zipcode,
-      },
-    } = this.props;
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Summary Informations" style={styles.barColor}></AppBar>
           <List>
-            <ListItem primaryText="First Name" secondaryText={firstName} />
-            <ListItem primaryText="Last Name" secondaryText={lastName} />
-            <ListItem primaryText="Username" secondaryText={username} />
-            <ListItem primaryText="Occupation" secondaryText={occupation} />
-            <ListItem primaryText="State" secondaryText={state} />
-            <ListItem primaryText="City" secondaryText={city} />
-            <ListItem primaryText="Zip Code" secondaryText={zipcode} />
+            <ListItem primaryText="First Name" secondaryText="hi" />
+            <ListItem primaryText="Last Name" secondaryText="hi" />
+            <ListItem primaryText="Username" secondaryText="hi" />
+            <ListItem primaryText="Occupation" secondaryText="hi" />
+            <ListItem primaryText="State" secondaryText="hi" />
+            <ListItem primaryText="City" secondaryText="hi" />
+            <ListItem primaryText="Zip Code" secondaryText="hi" />
           </List>
           <br />
           <RaisedButton
-            label="Back"
+            label="Edit"
             primary={false}
             style={styles.button}
             onClick={this.back}
           />
           <RaisedButton
-            label="Confirm & Continue"
+            label="Save"
             primary={true}
             style={styles.button}
             onClick={this.continue}
@@ -65,4 +54,4 @@ const styles = {
   },
   barColor: { background: '#2E3B55' },
 };
-export default SummaryInformations;
+export default DashboardProfileInformations;
