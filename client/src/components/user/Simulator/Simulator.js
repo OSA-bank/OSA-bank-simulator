@@ -1,13 +1,12 @@
 import React from 'react';
 import './Simulator.css';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class Simulator extends React.Component {
   state = {};
   render() {
     return (
       <div>
-        <h1>Your Simulator</h1>
+        <h1>My Simulator</h1>
         <label>Choose Loan Type</label>
         <div className="box">
           <select>
@@ -21,6 +20,7 @@ class Simulator extends React.Component {
           <input
             className="amount"
             type="number"
+            step="1000"
             placeholder="Type The Amount"
           ></input>
         </div>

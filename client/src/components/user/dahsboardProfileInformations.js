@@ -21,6 +21,7 @@ class DashboardProfileInformations extends React.Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
+          <h1>My Personal Informations</h1>
           <List>
             <ListItem primaryText="First Name" secondaryText="hi" />
             <ListItem primaryText="Last Name" secondaryText="hi" />

@@ -15,6 +15,7 @@ import ExposureIcon from '@material-ui/icons/Exposure';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DashboardProfileInformations from './dahsboardProfileInformations';
 import Simulator from './Simulator/Simulator';
+import ApplyForLoan from './Apply/Apply';
 
 const drawerWidth = 240;
 
@@ -161,6 +162,7 @@ class UserDashboard extends React.Component {
               simulator={this.simulatorView}
               apply={this.applyView}
             />
+            <ApplyForLoan />
           </div>
         );
     }
