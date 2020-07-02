@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import osa from '../images/osa.jpg';
+import test from '../images/osa1.jpg';
 import business from '../images/business.jpg'
 import house from '../images/house.jpg'
 
@@ -15,7 +15,7 @@ function Slides() {
 		<Carousel.Item >
 		  <img
 			className="d-block w-100" style={myStyle}
-			src={osa}
+			src={test}
 			alt="Car Loan"
 		  />
 		  
