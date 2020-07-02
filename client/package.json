@@ -18,11 +18,19 @@
     "react-calendar": "^3.1.0",
     "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
+
+    "react-redux": "^7.2.0",
+
+   
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+
     "react-fontawesome": "^1.7.1",
     "react-iframe": "^1.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1"
+
   },
   "scripts": {
     "start": "react-scripts start",
