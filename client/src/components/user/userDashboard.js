@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 import PersonIcon from '@material-ui/icons/Person';
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import ExposureIcon from '@material-ui/icons/Exposure';
@@ -56,6 +57,10 @@ function ClippedDrawer(props) {
           <Typography variant="h6" noWrap>
             My Dashboard
           </Typography>
+          <Grid item xs />
+          <Grid item>
+            <Typography variant="title">Welcome User!</Typography>
+          </Grid>
         </Toolbar>
       </AppBar>
       <Drawer

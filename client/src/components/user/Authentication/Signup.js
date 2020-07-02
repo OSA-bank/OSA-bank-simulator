@@ -26,6 +26,15 @@ class SignUp extends Component {
             />
           </div>
 
+          <div className="form-group">
+            <label>Password Confirmation</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Confirm Your Password"
+            />
+          </div>
+
           <button type="submit" className="btn btn-primary btn-block">
             Sign Up
           </button>
