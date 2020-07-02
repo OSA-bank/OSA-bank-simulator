@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Nav from '../nav/Nav';
-import User from '../user/User';
+import Sginup from '../user/sginup.js';
 import About from '../about/About';
 import {BrowserRouter as Router, Switch, Route}  from 'react-router-dom';
  
@@ -13,7 +13,7 @@ function App() {
     <Switch>
     <Route path="/" exact component={Home}/>
     <Route path="/about" component={About}/>
-    <Route path="/user"  component={User}/>
+    <Route path="/user"  component={Sginup}/>
     </Switch>
     </div>
   </Router>
