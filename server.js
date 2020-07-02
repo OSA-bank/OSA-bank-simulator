@@ -25,6 +25,7 @@ connection.once("open", () => {
 
 // here you require the router
 // then use the router ex:
+
 const userRouter = require("./routes/user");
 app.use("/user", userRouter);
 const authRouter = require("./routes/auth.js");
@@ -45,6 +46,12 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
+
+// const userRouter = require('./routes/user)
+//app.use('/user', userRouter)
+const contactRouter = require('./routes/contact')
+app.use('/contact', contactRouter)
+
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
