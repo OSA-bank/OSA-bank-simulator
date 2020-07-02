@@ -1,0 +1,47 @@
+.divServices {
+	position: relative;
+}
+.services {
+	background: #12222d;
+	padding: 100px;
+	text-align: center;
+}
+.services .container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 60px;
+}
+.services .container .serviceBx{
+	position: relative;
+	background: #fff;
+	width: 350px;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+.services .container .serviceBx img{
+	max-width: 100px;
+}
+.services .container .serviceBx h2{
+	font-weight: 500;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.heading {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+.text {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
