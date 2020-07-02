@@ -99,3 +99,19 @@ h1 {
 .calculate:hover {
   box-shadow: 0 0 10px 0 rgb(23, 240, 229) inset, 0 0 10px 4px rgb(7, 168, 61);
 }
+
+.container {
+  width: 400px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: #d5dadd;
+  margin-left: 650px;
+}
+
+.containerinf {
+  width: 400px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: #eaecee;
+  margin-left: 650px;
+}
