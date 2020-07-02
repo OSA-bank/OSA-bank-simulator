@@ -1,57 +1,35 @@
 import React from 'react';
-import './nav.css';
 import {Link} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from '../home/images/logo.png';
+import './nav.css'
 
 
-function Nav() {
+function Nav() { 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-  <a className="navbar-brand" href="#">logo</a>
+  <Link to="/" className="navbar-brand"><img alt="OSA Bank" src={logo} style={{width: "40%", height: "10vh"}}/></Link>
  
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav m-auto">
       <li className="nav-item active">
-        <a className="nav-link text-white text-uppercase ml-5" href="/">Home&nbsp;<i className="fa fa-home" aria-hidden="true"></i> <span className="sr-only">(current)</span></a>
+        <Link to="/" className="nav-link text-white text-uppercase ml-5">Home&nbsp;<i className="fa fa-home" aria-hidden="true"></i> <span className="sr-only">(current)</span></Link>
       </li>
      
       <li className="nav-item">
-        <a className="nav-link text-white text-uppercase ml-5" href="/contact">contact us</a>
+        <Link to="/contact" className="nav-link text-white text-uppercase ml-5">contact us</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link text-white text-uppercase ml-5" href="/about">About us</a>
+        <Link to="/about" className="nav-link text-white text-uppercase ml-5">About us</Link>
       </li>
     </ul>
     <ul className="nav navbar-nav navbar-right">
-      <li><a className="nav-link text-white text-uppercase ml-2" href="/signup">Sign Up&nbsp;<i className="fa fa-user" aria-hidden="true"></i></a></li>
-      <li><a className="nav-link text-white text-uppercase" href="/signin">Login&nbsp;<i className="fa fa-sign-in" aria-hidden="true"></i></a></li>
+      <li><Link to="/signup" className="nav-link text-white text-uppercase ml-2">Sign Up&nbsp;<i className="fa fa-user" aria-hidden="true"></i></Link></li>
+      <li><Link to="/signin" className="nav-link text-white text-uppercase">Login&nbsp;<i className="fa fa-sign-in" aria-hidden="true"></i></Link></li>
     </ul>
   </div>
 </nav>
-    // <nav> 
-    //   <h3>LOGO</h3>
-    //   <ul className="nav-links">
-    //     <Link to='/'>
-    //     <li><i class="fas fa-home">Home</i></li>
-    //     </Link>
-    //     <Link to='/newclient'>  
-    //     <li>Become a client</li>
-    //     </Link>
-    //     <Link to='/contact'>
-    //     <li>Contact Us</li>
-    //     </Link>
-    //     <Link to='/simulator'>
-    //     <li>Credit Simulator</li>
-    //     </Link>
-    //     <Link to='/about'>
-    //     <li>About Us</li>
-    //     </Link>
-    //     <Link to='/help'>
-    //     <li>Help</li>
-    //     </Link>
-    //   </ul>
-    // </nav>
   );
 }
 

@@ -1,3 +1,6 @@
+.divServices {
+	position: relative;
+}
 .services {
 	background: #12222d;
 	padding: 100px;
@@ -27,5 +30,18 @@
 .services .container .serviceBx h2{
 	font-weight: 500;
 	font-size: 20px;
+	letter-spacing: 1px;
+}
+.heading {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+.text {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
 	letter-spacing: 1px;
 }
