@@ -24,7 +24,8 @@ connection.once('open', () => {
 // then use the router ex:
 // const userRouter = require('./routes/user)
 //app.use('/user', userRouter)
-
+const contactRouter = require('./routes/contact')
+app.use('/contact', contactRouter)
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
