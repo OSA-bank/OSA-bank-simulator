@@ -32,6 +32,9 @@ app.use('/user', userRouter);
 const userinformationsRouter = require('./routes/userinformations.js');
 app.use('/userinformations', userinformationsRouter);
 
+const appointementRouter = require('./routes/appointement.js');
+app.use('/appointement', appointementRouter);
+
 const authRouter = require('./routes/auth.js');
 app.use('/auth', authRouter);
 app.get('/posts', authenticateToken, (req, res) => {

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // UserInformations Model
-const UserInformations = require('../models/userinformations.model.js');
+const Appointement = require('../models/appointement.model.js');
 
 /**
  * @route   GET api/users
@@ -10,8 +10,8 @@ const UserInformations = require('../models/userinformations.model.js');
  */
 
 router.route('/').post((req, res) => {
-  var userInfos = new UserInformations(req.body);
-  userInfos.save(function (err, result) {
+  var appointement = new Appointement(req.body);
+  appointement.save(function (err, result) {
     if (err) {
       console.log(err);
     } else {

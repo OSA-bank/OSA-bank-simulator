@@ -58,15 +58,15 @@ async function createUser(
   console.log(result);
 }
 
-createUser(
-  'ouss',
-  'sfr',
-  'amessuo88',
-  'engineer',
-  'ben arous',
-  'mégrine',
-  2024,
-  '5efda8a469557a42107407d0'
-);
+// createUser(
+//   'ouss',
+//   'sfr',
+//   'amessuo88',
+//   'engineer',
+//   'ben arous',
+//   'mégrine',
+//   2024,
+//   '5efda8a469557a42107407d0'
+// );
 
 module.exports = UserInformations;

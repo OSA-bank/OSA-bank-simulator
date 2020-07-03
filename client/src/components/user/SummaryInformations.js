@@ -7,20 +7,24 @@ import { List, ListItem } from 'material-ui';
 import axios from 'axios';
 
 class SummaryInformations extends React.Component {
-  continue = (e) => {
-    e.preventDefault();
+  continue = () => {
+    // e.preventDefault();
+    // console.log('test');
     this.props.nextStep();
   };
 
-  back = (e) => {
-    e.preventDefault();
+  back = () => {
+    // e.preventDefault();
     this.props.prevStep();
   };
 
   sendInf = () => {
     axios
       .post('http://localhost:5000/userinformations', this.props.values)
-      .then((response) => {})
+      .then((response) => {
+        // console.log('here');
+        this.continue();
+      })
       .catch((err) => console.log('Error', err));
   };
 
