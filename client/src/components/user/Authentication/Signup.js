@@ -1,7 +1,28 @@
 import React, { Component } from 'react';
 import '../Authentication/Authentication.css';
+import UserForm from '../UserForm';
+import { Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
+  state = {
+    redirect: false,
+  };
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/userForm" />;
+    }
+  };
+  // state = {
+  //   formView: 'false',
+  // };
+  // toFormView = () => {
+  //   this.setState({ formView: 'true' });
+  // };
   render() {
     return (
       <div className="auth-container">
@@ -14,7 +35,8 @@ class SignUp extends Component {
               type="email"
               className="form-control"
               placeholder="Enter Your Email Address"
-            />
+              required
+            ></input>
           </div>
 
           <div className="form-group">
@@ -23,7 +45,8 @@ class SignUp extends Component {
               type="password"
               className="form-control"
               placeholder="Enter Your Password"
-            />
+              required
+            ></input>
           </div>
 
           <div className="form-group">
@@ -32,12 +55,19 @@ class SignUp extends Component {
               type="password"
               className="form-control"
               placeholder="Confirm Your Password"
-            />
+              required
+            ></input>
           </div>
-
-          <button type="submit" className="btn btn-primary btn-block">
-            Sign Up
-          </button>
+          <div>
+            {this.renderRedirect()}
+            <button
+              type="submit"
+              className="btn btn-primary btn-block"
+              onClick={this.setRedirect}
+            >
+              Sign Up
+            </button>
+          </div>
           <p className="forgot-password text-right">
             Already registered <a href="#">sign in?</a>
           </p>
