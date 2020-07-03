@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import PersonIcon from '@material-ui/icons/Person';
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
 import ExposureIcon from '@material-ui/icons/Exposure';
+import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DashboardProfileInformations from './dahsboardProfileInformations';
 import Simulator from './Simulator/Simulator';
@@ -97,6 +98,17 @@ function ClippedDrawer(props) {
               </ListItemIcon>
               <ListItemText primary="Apply For A Loan" />
             </ListItem>
+
+            <ListItem
+              button
+              key="My Scheduled Appointements"
+              onClick={props.profileinf}
+            >
+              <ListItemIcon>
+                <WatchLaterIcon />
+              </ListItemIcon>
+              <ListItemText primary="My Scheduled Appointements" />
+            </ListItem>
           </List>
         </div>
       </Drawer>
@@ -133,6 +145,13 @@ class UserDashboard extends React.Component {
     });
   };
 
+  myschedView = () => {
+    const { view } = this.state;
+    this.setState({
+      view: 'mysched',
+    });
+  };
+
   render() {
     const { view } = this.state;
 
@@ -144,6 +163,7 @@ class UserDashboard extends React.Component {
               profileinf={this.profileView}
               simulator={this.simulatorView}
               apply={this.applyView}
+              mysched={this.myschedView}
             />
             <DashboardProfileInformations />
           </div>
@@ -155,6 +175,7 @@ class UserDashboard extends React.Component {
               profileinf={this.profileView}
               simulator={this.simulatorView}
               apply={this.applyView}
+              mysched={this.myschedView}
             />
             <Simulator />
           </div>
@@ -166,6 +187,19 @@ class UserDashboard extends React.Component {
               profileinf={this.profileView}
               simulator={this.simulatorView}
               apply={this.applyView}
+              mysched={this.myschedView}
+            />
+            <ApplyForLoan />
+          </div>
+        );
+      case 'mysched':
+        return (
+          <div>
+            <ClippedDrawer
+              profileinf={this.profileView}
+              simulator={this.simulatorView}
+              apply={this.applyView}
+              mysched={this.myschedView}
             />
             <ApplyForLoan />
           </div>
