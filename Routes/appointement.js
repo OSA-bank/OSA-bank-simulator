@@ -21,4 +21,14 @@ router.route('/').post((req, res) => {
   });
 });
 
+router.route('/').get((req, res) => {
+  Appointement.find({}, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+    res.end();
+  });
+});
 module.exports = router;

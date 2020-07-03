@@ -18,6 +18,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DashboardProfileInformations from './dahsboardProfileInformations';
 import Simulator from './Simulator/Simulator';
 import ApplyForLoan from './Apply/Apply';
+import Item from './Myscheduled/Myscheduled';
 
 const drawerWidth = 240;
 
@@ -102,7 +103,7 @@ function ClippedDrawer(props) {
             <ListItem
               button
               key="My Scheduled Appointements"
-              onClick={props.profileinf}
+              onClick={props.mysched}
             >
               <ListItemIcon>
                 <WatchLaterIcon />
@@ -201,7 +202,7 @@ class UserDashboard extends React.Component {
               apply={this.applyView}
               mysched={this.myschedView}
             />
-            <ApplyForLoan />
+            <Item />
           </div>
         );
     }
