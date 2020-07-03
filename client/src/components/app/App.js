@@ -14,9 +14,12 @@ import Contact from '../home/Contact/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Appointment from '../home/calender/Calender';
 //import Form from '../home/form/Form2'
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <div className="App">
         <Nav />
@@ -37,6 +40,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </Provider>
   );
 }
 

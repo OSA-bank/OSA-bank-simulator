@@ -1,12 +1,47 @@
-import React, { Component } from 'react';
-import '../Authentication/Authentication.css';
-import UserForm from '../UserForm';
-import { Redirect } from 'react-router-dom';
-
+import React, { Component } from "react";
+import "../Authentication/Authentication.css";
+import UserForm from "../UserForm";
+import { Redirect } from "react-router-dom";
+import axios from "axios"
 class SignUp extends Component {
-  state = {
-    redirect: false,
-  };
+ 
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false,
+    redirectLogin: false,
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    const value = event.target.value;
+
+    this.setState({ [event.target.id]: value });
+    console.log(this.state);
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.state.password === this.state.confirmPassword) {
+      const userData = {
+
+        
+        email: this.state.email,
+        password: this.state.password,
+        
+      };
+      console.log(userData)
+      axios.post(`http://localhost:5000/auth/register`, userData).then((res) => {
+        alert("welcome to our website");
+      });
+    } else {
+      alert("confirm your passwword");
+    }
+  }
   setRedirect = () => {
     this.setState({
       redirect: true,
@@ -15,6 +50,16 @@ class SignUp extends Component {
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to="/userForm" />;
+    }
+  };
+  setRedirectLogin = () => {
+    this.setState({
+      redirectLogin: true,
+    });
+  };
+  renderRedirectLogin = () => {
+    if (this.state.redirectLogin) {
+      return <Redirect to="/login" />;
     }
   };
   // state = {
@@ -32,9 +77,11 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Email Address</label>
             <input
+              id = "email"
               type="email"
               className="form-control"
               placeholder="Enter Your Email Address"
+              onChange={this.handleChange}
               required
             ></input>
           </div>
@@ -42,9 +89,11 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Password</label>
             <input
+             id ="password"
               type="password"
               className="form-control"
               placeholder="Enter Your Password"
+              onChange={this.handleChange}
               required
             ></input>
           </div>
@@ -52,9 +101,11 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Password Confirmation</label>
             <input
+             id = "confirmPassword"
               type="password"
               className="form-control"
               placeholder="Confirm Your Password"
+              onChange={this.handleChange}
               required
             ></input>
           </div>
@@ -63,14 +114,18 @@ class SignUp extends Component {
             <button
               type="submit"
               className="btn btn-primary btn-block"
-              onClick={this.setRedirect}
+              
+             onClick={this.handleSubmit} // onClick={this.setRedirect}
             >
               Sign Up
             </button>
           </div>
-          <p className="forgot-password text-right">
-            Already registered <a href="#">sign in?</a>
-          </p>
+          <div>
+            <p className="forgot-password text-right">
+              {this.renderRedirectLogin()}
+              Already registered <a onClick={ this.setRedirectLogin}>sign in?</a>
+            </p>
+          </div>
         </form>
       </div>
     );
