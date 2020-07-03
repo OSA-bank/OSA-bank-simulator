@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { List, ListItem } from 'material-ui';
+import axios from 'axios';
 
 class SummaryInformations extends React.Component {
   continue = (e) => {
@@ -14,6 +15,13 @@ class SummaryInformations extends React.Component {
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
+  };
+
+  sendInf = () => {
+    axios
+      .post('http://localhost:5000/userinformations', this.props.values)
+      .then((response) => {})
+      .catch((err) => console.log('Error', err));
   };
 
   render() {
@@ -52,7 +60,7 @@ class SummaryInformations extends React.Component {
             label="Confirm & Continue"
             primary={true}
             style={styles.button}
-            onClick={this.continue}
+            onClick={this.sendInf}
           />
         </React.Fragment>
       </MuiThemeProvider>

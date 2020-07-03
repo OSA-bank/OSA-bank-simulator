@@ -3,6 +3,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import axios from 'axios';
+
 class Success extends React.Component {
   continue = (e) => {
     e.preventDefault();
@@ -13,6 +15,16 @@ class Success extends React.Component {
     e.preventDefault();
     this.props.prevStep();
   };
+
+  // sendInf = () => {
+  //   axios
+  //     .post('http://localhost:5000/userinformations', this.props.values)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+
+  //     .catch((err) => console.log('Error', err));
+  // };
 
   render() {
     return (
