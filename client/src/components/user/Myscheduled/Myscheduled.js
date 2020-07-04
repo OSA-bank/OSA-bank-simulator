@@ -21,7 +21,7 @@ class Item extends Component {
     const list = this.state.items.map((item) => {
       return (
         <React.Fragment>
-          <ul className="list-group">
+          <ul className="list-group" key={item._id}>
             <li className="list-group-item list-group-item-primary">
               {item.date}
             </li>

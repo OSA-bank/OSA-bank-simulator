@@ -14,12 +14,13 @@ import Contact from '../home/Contact/ContactUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Appointment from '../home/calender/Calender';
 //import Form from '../home/form/Form2'
+import OurTeam from '../user/Other/Signup2';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        {/* <Nav /> */}
         <Switch>
           <Route path="/contact" component={Contact} />
           <Route path="/appointment" component={Appointment} />
@@ -34,6 +35,7 @@ function App() {
             path="/dashboarprofileinformations"
             component={DashboardProfileInformations}
           />
+          <Route path="/other" component={OurTeam} />
         </Switch>
       </div>
     </Router>

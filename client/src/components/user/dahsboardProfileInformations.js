@@ -5,8 +5,24 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { List, ListItem } from 'material-ui';
 import UserDashboard from './userDashboard';
+import axios from 'axios';
 
 class DashboardProfileInformations extends React.Component {
+  state = { users: [] };
+  componentWillMount() {
+    axios
+      .get('http://localhost:5000/userinformations')
+      .then((response) => {
+        this.setState({
+          users: response.data,
+        });
+        console.log(this.state.users);
+        // console.log(this.state.classesList);
+      })
+
+      .catch((err) => console.log('Error', err));
+  }
+
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -24,7 +40,7 @@ class DashboardProfileInformations extends React.Component {
           <React.Fragment>
             <h1>My Personal Informations</h1>
             <List>
-              <ListItem primaryText="First Name" secondaryText="hi" />
+              <ListItem primaryText="First Name" secondaryText="" />
               <ListItem primaryText="Last Name" secondaryText="hi" />
               <ListItem primaryText="Username" secondaryText="hi" />
               <ListItem primaryText="Occupation" secondaryText="hi" />
