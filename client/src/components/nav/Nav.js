@@ -8,7 +8,7 @@ import './nav.css'
 function Nav() { 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-  <Link to="/" className="navbar-brand"><img alt="OSA Bank" src={logo} style={{width: "40%", height: "10vh"}}/></Link>
+  <Link to="/" className="navbar-brand"><img alt="OSA Bank" src={logo} style={{width: "30%", height: "7vh"}}/></Link>
  
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">

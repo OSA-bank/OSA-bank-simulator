@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const nodemailer = require('nodemailer');
 // const db = require("./db/database");
 
 require("dotenv").config();
@@ -23,13 +24,12 @@ connection.once("open", () => {
   console.log("MongoDB connected");
 });
 
-// here you require the router
-// then use the router ex:
 
 const userRouter = require("./routes/user");
 app.use("/user", userRouter);
 const authRouter = require("./routes/auth.js");
 app.use("/auth", authRouter);
+
 app.get("/posts", authenticateToken, (req, res) => {
   res.json(posts.filter((post) => post.username === req.user.name));
 });
@@ -47,10 +47,54 @@ function authenticateToken(req, res, next) {
   });
 }
 
-// const userRouter = require('./routes/user)
-//app.use('/user', userRouter)
 const contactRouter = require('./routes/contact')
 app.use('/contact', contactRouter)
+
+app.post('/api/forma', (req,res)=>{
+  let smtpTransport = nodemailer.createTransport({
+     service:'Gmail' ,
+     port:465,
+     auth:{
+      user:'osa.bank.test@gmail.com',
+      pass:'oussemasiwarahmed'
+     }
+  });
+  
+  
+  let mailOptions={
+      from:'osa.bank.test@gmail.com',
+      to:`${req.body.email}`,
+      subject:"Your Credit Simulator Details",
+      html:`
+      
+      <h3>Your Credit Details:</h3>
+      <ul>
+        <li>Name: ${req.body.name}</li>
+        <li>Email: ${req.body.email}</li>
+        <li>Subject: ${req.body.subject}</li>
+      </ul>
+      <h3>Message</h3>
+      <p> ${req.body.message}</p>
+      ` 
+  };
+  
+  smtpTransport.sendMail(mailOptions, (error, response)=>{   
+      if(error){
+          res.send(error)
+      }
+      else{
+          res.send('Success')
+      } 
+      smtpTransport.close();
+  })
+  })
+  
+
+
+
+
+
+
 
 
 app.listen(PORT, () => {
