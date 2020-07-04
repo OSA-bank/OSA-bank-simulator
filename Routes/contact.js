@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Contact = require('../models/contact.model');
+const Contact = require('../models/contact.model');
 
 
 router.route('/').post((req, res) => {

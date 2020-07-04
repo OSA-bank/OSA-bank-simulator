@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import "../Authentication/Authentication.css";
 import UserForm from "../UserForm";
 import { Redirect } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 class SignUp extends Component {
- 
   constructor(props) {
     super(props);
     this.state = {
       redirect: false,
-    redirectLogin: false,
+      redirectLogin: false,
       email: "",
       password: "",
       confirmPassword: "",
@@ -28,14 +27,11 @@ class SignUp extends Component {
     event.preventDefault();
     if (this.state.password === this.state.confirmPassword) {
       const userData = {
-
-        
         email: this.state.email,
         password: this.state.password,
-        
       };
-      console.log(userData)
-      axios.post(`http://localhost:5000/auth/register`, userData).then((res) => {
+      console.log(userData);
+      axios.post(`/auth/register`, userData).then((res) => {
         alert("welcome to our website");
       });
     } else {
@@ -77,7 +73,7 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Email Address</label>
             <input
-              id = "email"
+              id="email"
               type="email"
               className="form-control"
               placeholder="Enter Your Email Address"
@@ -89,7 +85,7 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Password</label>
             <input
-             id ="password"
+              id="password"
               type="password"
               className="form-control"
               placeholder="Enter Your Password"
@@ -101,7 +97,7 @@ class SignUp extends Component {
           <div className="form-group">
             <label>Password Confirmation</label>
             <input
-             id = "confirmPassword"
+              id="confirmPassword"
               type="password"
               className="form-control"
               placeholder="Confirm Your Password"
@@ -114,8 +110,7 @@ class SignUp extends Component {
             <button
               type="submit"
               className="btn btn-primary btn-block"
-              
-             onClick={this.handleSubmit} // onClick={this.setRedirect}
+              onClick={this.handleSubmit} // onClick={this.setRedirect}
             >
               Sign Up
             </button>
@@ -123,7 +118,7 @@ class SignUp extends Component {
           <div>
             <p className="forgot-password text-right">
               {this.renderRedirectLogin()}
-              Already registered <a onClick={ this.setRedirectLogin}>sign in?</a>
+              Already registered <a onClick={this.setRedirectLogin}>sign in?</a>
             </p>
           </div>
         </form>
