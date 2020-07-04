@@ -1,28 +1,32 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
+
 const nodemailer = require('nodemailer');
+
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
 // const db = require("./db/database");
 
-require("dotenv").config();
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname + "./client/public"));
+app.use(express.static(__dirname + './client/public'));
 
 const uri = process.env.URI;
-mongoose.connect(uri, {  
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
 });
 const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB connected");
+connection.once('open', () => {
+  console.log('MongoDB connected');
 });
+
 
 
 const userRouter = require("./routes/user");
@@ -31,12 +35,23 @@ const authRouter = require("./routes/auth.js");
 app.use("/auth", authRouter);
 
 app.get("/posts", authenticateToken, (req, res) => {
+
+const userRouter = require('./routes/user');
+app.use('/user', userRouter);
+
+const userinformationsRouter = require('./routes/userinformations.js');
+app.use('/userinformations', userinformationsRouter);
+
+const authRouter = require('./routes/auth.js');
+app.use('/auth', authRouter);
+app.get('/posts', authenticateToken, (req, res) => {
+
   res.json(posts.filter((post) => post.username === req.user.name));
 });
 
 function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, process.env.secret_token, (err, user) => {
@@ -46,6 +61,7 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
+
 
 const contactRouter = require('./routes/contact')
 app.use('/contact', contactRouter)
@@ -95,6 +111,12 @@ app.post('/api/forma', (req,res)=>{
 
 
 
+
+
+// const userRouter = require('./routes/user)
+//app.use('/user', userRouter)
+const contactRouter = require('./routes/contact');
+app.use('/contact', contactRouter);
 
 
 app.listen(PORT, () => {

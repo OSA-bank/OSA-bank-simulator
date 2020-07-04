@@ -4,9 +4,8 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstname :"",
-      lastname:"",
-      mail: "",
+      
+      email: "",
       password: "",
       confirmPassword: "",
     };
@@ -25,9 +24,8 @@ class SignUp extends React.Component {
     if (this.state.password === this.state.confirmPassword) {
       const userData = {
 
-        firstname : this.state.firstname,
-        lastname : this.state.lastname,
-        mail: this.state.mail,
+        
+        email: this.state.mail,
         password: this.state.password,
         
       };
@@ -63,7 +61,7 @@ class SignUp extends React.Component {
           <input
             type="text"
             id="mail"
-            value={this.state.mail}
+            value={this.state.email}
             onChange={this.handleChange}
           />
           <br />

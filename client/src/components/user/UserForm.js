@@ -82,7 +82,7 @@ class UserForm extends React.Component {
           />
         );
       case 4:
-        return <Success />;
+        return <Success values={values} />;
     }
   }
 }
