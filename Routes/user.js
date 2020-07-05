@@ -5,7 +5,7 @@ const User = require("../models/user.model.js");
 
 /**
  * @route   GET api/users
- * @desc    Get all users
+ * @desc    Get all users 
  * @access  Private
  */
 router.route("/").get(async (req, res) => {

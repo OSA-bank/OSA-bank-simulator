@@ -1,9 +1,8 @@
 
-const nodemailer = require('nodemailer');
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 
 // const db = require("./db/database");
 
@@ -33,17 +32,9 @@ const userRouter = require("./routes/user");
 app.use("/user", userRouter);
 const authRouter = require("./routes/auth.js");
 app.use("/auth", authRouter);
-
-app.get("/posts", authenticateToken, (req, res) => {
-
-const userRouter = require('./routes/user');
-app.use('/user', userRouter);
-
 const userinformationsRouter = require('./routes/userinformations.js');
 app.use('/userinformations', userinformationsRouter);
 
-const authRouter = require('./routes/auth.js');
-app.use('/auth', authRouter);
 app.get('/posts', authenticateToken, (req, res) => {
 
   res.json(posts.filter((post) => post.username === req.user.name));
@@ -103,22 +94,8 @@ app.post('/api/forma', (req,res)=>{
       } 
       smtpTransport.close();
   })
-  })
-  
-
-
-
-
-
-
-
-
-// const userRouter = require('./routes/user)
-//app.use('/user', userRouter)
-const contactRouter = require('./routes/contact');
-app.use('/contact', contactRouter);
-
-
+})
+ 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
